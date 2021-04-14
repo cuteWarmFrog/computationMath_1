@@ -16,6 +16,9 @@ matrix = Reader.readMatrix(consoleOrFile)
 if matrix is None:
     sys.exit('Вы ввели кринж. Теперь весь город должен умереть.')
 
+matrixWithoutB = [line[:len(line) - 1] for line in matrix]
+
+det = np.linalg.det(matrixWithoutB)
 accuracy = float(input('Введите желаемую точность:\n'))
 answer, iterations = Seidel.Seidel(matrix, accuracy)
 
