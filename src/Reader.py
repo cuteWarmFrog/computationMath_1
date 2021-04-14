@@ -18,7 +18,7 @@ def readFromConsole():
 
 def readFromFile():
     matrix = []
-    f = open('test.txt', 'r')
+    f = open('../test.txt', 'r')
     for line in f:
         matrix.append(list(map(lambda x: float(x), line.split(' '))))
     return matrix

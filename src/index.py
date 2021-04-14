@@ -16,10 +16,14 @@ matrix = Reader.readMatrix(consoleOrFile)
 if matrix is None:
     sys.exit('Вы ввели кринж. Теперь весь город должен умереть.')
 
-matrixWithoutB = [line[:len(line) - 1] for line in matrix]
+det = np.linalg.det([line[:len(line) - 1] for line in matrix])
 
-det = np.linalg.det(matrixWithoutB)
+if round(det, 3) == 0:
+    print("Определитель - 0, жизнь не имеет смысла")
+    sys.exit()
+
 accuracy = float(input('Введите желаемую точность:\n'))
+
 answer, iterations = Seidel.Seidel(matrix, accuracy)
 
 print('Итараций:', iterations)
