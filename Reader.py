@@ -12,7 +12,7 @@ def readFromConsole():
     matrix = []
     n = int(input('Какая размерность у матрицы?'))
     for i in range(n):
-        matrix.append(map(lambda x: int(x), input().split(' ')))
+        matrix.append(map(lambda x: float(x), input().split(' ')))
     return matrix
 
 
@@ -20,5 +20,5 @@ def readFromFile():
     matrix = []
     f = open('test.txt', 'r')
     for line in f:
-        matrix.append(list(map(lambda x: int(x), line.split(' '))))
+        matrix.append(list(map(lambda x: float(x), line.split(' '))))
     return matrix

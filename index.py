@@ -1,5 +1,7 @@
 import numpy as np
 import Reader
+import Seidel
+import sys
 
 
 def greet():
@@ -7,13 +9,15 @@ def greet():
 
 
 greet()
-answer = input('Напиши (1), если хочешь ввести матрицы вручную или (2), если из файла.\n')
+consoleOrFile = input('Напиши (1), если хочешь ввести матрицы вручную или (2), если из файла.\n')
 
-matrix = Reader.readMatrix(answer)
+matrix = Reader.readMatrix(consoleOrFile)
 
-if matrix is not None:
-    print('Ваша матрица:')
-    for line in matrix:
-        print(line)
-else:
-    print('Вы запостили кринж, весь город должен умереть!')
+if matrix is None:
+    sys.exit('Вы ввели кринж. Теперь весь город должен умереть.')
+
+accuracy = float(input('Введите желаемую точность:\n'))
+answer, iterations = Seidel.Seidel(matrix, accuracy)
+
+print('Итараций:', iterations)
+print('Ответ:', answer)
