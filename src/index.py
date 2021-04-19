@@ -4,12 +4,9 @@ import Seidel
 import sys
 
 
-def greet():
-    print('Приветствую тебя, странник.\nЧувствуй себя как дома, но не забывай, что ты в гостях.\n')
+print('Приветствую тебя, странник.\nЧувствуй себя как дома, но не забывай, что ты в гостях.\n')
 
-
-greet()
-consoleOrFile = input('Напиши (1), если хочешь ввести матрицы вручную или (2), если из файла.\n')
+consoleOrFile = input('Напиши (1), если хочешь ввести матрицы вручную или (2), если из файла. 3, если \n')
 
 matrix = Reader.readMatrix(consoleOrFile)
 
@@ -24,7 +21,15 @@ if round(det, 3) == 0:
 
 accuracy = float(input('Введите желаемую точность:\n'))
 
-answer, iterations = Seidel.Seidel(matrix, accuracy)
+answer, iterations = Seidel.Solve(matrix, accuracy)
 
-print('Итараций:', iterations)
-print('Ответ:', answer)
+if len(answer) > 0:
+    print('Итараций:', iterations)
+    print('Ответ:', answer)
+else:
+    if iterations == 0:
+        print("Отсуствие диагонального преобладания!")
+    else:
+        print("Достингуто пиковое число итераций. Итерации расходятся :(")
+
+

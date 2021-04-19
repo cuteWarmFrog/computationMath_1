@@ -1,6 +1,7 @@
 import numpy as np
 from Seidel import checkDiagonal
 
+
 # actually this sucks a lot. Too many shit words like lambda or list. JS is better in one string programs))
 def generateMatrixMap(n):
     matrix = list(map(lambda line: list(map(lambda el: round(el * 10), line)), list(np.random.rand(n, n + 1))))
