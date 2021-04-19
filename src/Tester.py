@@ -7,7 +7,7 @@ def testOnRandomMatrices(n, accuracy):
     nenorm = 0
     for i in range(n):
         print(str(i) + " test \n")
-        matrix = MatrixGenerator.generateMatrixMap(4)
+        matrix = MatrixGenerator.generateMatrixCool(4)
         answer, iterations = Solve(matrix, accuracy)
         if len(answer) > 0:
             norm += 1
