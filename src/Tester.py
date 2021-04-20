@@ -4,21 +4,21 @@ from Seidel import Solve
 
 def testOnRandomMatrices(n, accuracy):
     norm = 0
-    nenorm = 0
+    neNorm = 0
     for i in range(n):
         print(str(i) + " test \n")
-        matrix = MatrixGenerator.generateMatrixCool(4)
+        matrix = MatrixGenerator.generateMatrixCool(2)
         answer, iterations = Solve(matrix, accuracy)
         if len(answer) > 0:
             norm += 1
-            # print('Итараций:', iterations)
-            # print('Ответ:', answer)
+            print('Итараций:', iterations)
+            print('Ответ:', answer)
         else:
-            nenorm += 1
-            # print("Достингуто пиковое число итераций. Итерации расходятся :(")
+            neNorm += 1
+            print("Достингуто пиковое число итераций. Итерации расходятся :(")
 
     print(norm)
-    print(nenorm)
+    print(neNorm)
 
 
-testOnRandomMatrices(100000, 0.01)
+testOnRandomMatrices(1000, 0.001)

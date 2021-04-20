@@ -3,7 +3,6 @@ import Reader
 import Seidel
 import sys
 
-
 print('Приветствую тебя, странник.\nЧувствуй себя как дома, но не забывай, что ты в гостях.\n')
 
 consoleOrFile = input('Напиши (1), если хочешь ввести матрицы вручную или (2), если из файла. 3, если \n')
@@ -21,15 +20,14 @@ if round(det, 3) == 0:
 
 accuracy = float(input('Введите желаемую точность:\n'))
 
-answer, iterations = Seidel.Solve(matrix, accuracy)
+answer, iterations, errorRate = Seidel.Solve(matrix, accuracy)
 
 if len(answer) > 0:
     print('Итараций:', iterations)
+    print('Погрешность:', errorRate)
     print('Ответ:', answer)
 else:
     if iterations == 0:
         print("Отсуствие диагонального преобладания!")
     else:
         print("Достингуто пиковое число итераций. Итерации расходятся :(")
-
-
