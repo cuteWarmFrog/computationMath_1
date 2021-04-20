@@ -6,7 +6,6 @@ def Solve(matrix, accuracy):
     print("Ваша матрица:")
     for line in matrix: print(line)
     matrix = DiagonalFinder.findDiagonal(matrix)
-    print("\n")
     if matrix:
         print("После приведения: ")
         for line in matrix: print(line)
@@ -43,9 +42,8 @@ def Seidel(matrix, accuracy):
             s1 = sum(matrix[i][j] * xNew[j] for j in range(i))
             s2 = sum(matrix[i][j] * x[j] for j in range(i + 1, n))
             xNew[i] = (matrix[i][n] - s1 - s2) / matrix[i][i]
-        for i in range(n):
-            errorRate[i] = abs(xNew[i] - x[i])
-            converge = abs(xNew[i] - x[i]) <= accuracy
+        errorRate = [abs(xNew[i]-x[i]) for i in range(n)]
+        converge = max(errorRate) <= accuracy
         x = xNew
 
     return x, iterations, errorRate
